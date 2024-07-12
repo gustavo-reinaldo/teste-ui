@@ -14,7 +14,7 @@ describe('Funcionalidade pagina de produtos', () => {
             .click();
     });
 
-    it.only('Deve adicionar um produto ao carrinho', () => {
+    it('Deve adicionar um produto ao carrinho', () => {
 
         var quantidade = 2
         
@@ -29,5 +29,9 @@ describe('Funcionalidade pagina de produtos', () => {
 
         cy.get('.woocommerce-message').should('contain', quantidade)
         cy.get('.dropdown-toggle > .mini-cart-items').should('contain', (quantidade))
+    });
+
+    it('Deve adicionar um produto ao carrinho - Usando comando customizado', () => {
+        cy.addProdutos('Atlas Fitness Tank', 4, 'M', 'Blue')
     });
 });

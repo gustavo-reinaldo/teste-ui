@@ -27,10 +27,10 @@ context('Funcionalidade de Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá')
     })
 
-    it.only('Deve fazer login com sucesso - Usando Fixture', () => {
+    it('Deve fazer login com sucesso - Usando Fixture', () => {
         cy.fixture('perfil').then(dados => {
-            cy.get('#username').type(dados.user);
-            cy.get('#password').type(dados.password, {log: false});
+            cy.get('#username').type(dados.user); 
+            cy.get('#password').type(dados.password, {log: false}); //-> usado para esconder na execução as senhas, que são informações sensíveis
             cy.get('.woocommerce-form > .button').click();
             cy.get('.page-title').should('contain', 'Minha conta');
             cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá')
