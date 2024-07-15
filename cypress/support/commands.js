@@ -17,7 +17,7 @@ Cypress.Commands.add('preCadastro', (email, senha, nome, sobrenome) => {
 
 Cypress.Commands.add('addProdutos', (produto, quantidade, tamanho, cor) => {
     cy.get('[class="product-block grid"]')
-        .contains(produto) //-> selecionar o primeiro item do product-block grid(que é a div que vai armazenar os produtos)
+        .contains(produto) //-> selecionar o produto no product-block grid
         .click();
 
     cy.get('.button-variable-item-' + tamanho).click()
