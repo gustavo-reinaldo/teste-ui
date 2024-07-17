@@ -67,6 +67,7 @@ testes-ui-ebac/
 │   ├── fixtures/
 │   ├── /screenshots
 │   └── support/
+│       └─── page-objects
 ├── node_modules/
 ├── .gitignore
 ├── cypress.json
