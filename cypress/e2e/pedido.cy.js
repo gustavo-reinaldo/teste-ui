@@ -3,8 +3,7 @@ import enderecoPage from '../support/page-objects/endereco.page';
 import EnderecoPage from '../support/page-objects/endereco.page'
 const dadosEndereco = require('../fixtures/endereco.json')
 
-
-context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
+describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
         Quero acessar a Loja EBAC -> começar pela página de login
         Para fazer um pedido de 4 produtos 
