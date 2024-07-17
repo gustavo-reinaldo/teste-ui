@@ -19,7 +19,6 @@ Cypress.Commands.add('addProdutos', (produto, quantidade, tamanho, cor) => {
     cy.get('[class="product-block grid"]')
         .contains(produto) //-> selecionar o produto no product-block grid
         .click();
-        
     cy.get('.button-variable-item-' + tamanho).click()
     cy.get('.button-variable-item-' + cor).click()
     cy.get('.input-text').clear().type(quantidade) //-> caso queira mudar a quantidade de itens a serem adicionados, substituir o type()

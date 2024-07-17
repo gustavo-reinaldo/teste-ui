@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
-import enderecoPage from '../support/page-objects/endereco.page';
+import loginPage from '../support/page-objects/login.page';
 import EnderecoPage from '../support/page-objects/endereco.page'
 const dadosEndereco = require('../fixtures/endereco.json')
+const dadosLogin = require('../fixtures/perfil.json')
 
 describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     /*  Como cliente 
@@ -17,9 +18,7 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     });
 
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-        cy.get('#username').type('aluno_ebac@teste.com');
-        cy.get('#password').type('teste@teste.com');
-        cy.get('.woocommerce-form > .button').click();
+        loginPage.login(dadosLogin.user, dadosLogin.password)
         //--------------------first step---------------------//
         cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Ajax Full-Zip Sweatshirt', 1, 'M', 'Blue')
@@ -28,13 +27,12 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
         cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Apollo Running Short', 1, '32', 'Black')
         cy.get('#primary-menu > .menu-item-629 > a').click()
-
         cy.addProdutos('Arcadio Gym Short', 1, '34', 'Red')
         //----------------second step---------------------//
         cy.get('.dropdown-toggle > .text-skin').click()
         cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click()
         //---------acessin the checkout page and filing the checkout options-----------//
-        enderecoPage.editarEnderecoFaturamentoCheckout(
+        EnderecoPage.editarEnderecoFaturamentoCheckout(
             dadosEndereco[2].nome,
             dadosEndereco[2].sobrenome,
             dadosEndereco[2].empresa,
