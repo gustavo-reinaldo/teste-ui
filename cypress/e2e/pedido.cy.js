@@ -20,18 +20,14 @@ describe('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
     it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
         loginPage.login(dadosLogin.user, dadosLogin.password)
         //--------------------first step---------------------//
-        cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Ajax Full-Zip Sweatshirt', 1, 'M', 'Blue')
-        cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Argus All-Weather Tank', 1, 'S', 'Gray')
-        cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Apollo Running Short', 1, '32', 'Black')
-        cy.get('#primary-menu > .menu-item-629 > a').click()
         cy.addProdutos('Arcadio Gym Short', 1, '34', 'Red')
         //----------------second step---------------------//
         cy.get('.dropdown-toggle > .text-skin').click()
         cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click()
-        //---------acessin the checkout page and filing the checkout options-----------//
+        //---------acessing the checkout page and filing the checkout options-----------//
         EnderecoPage.editarEnderecoFaturamentoCheckout(
             dadosEndereco[2].nome,
             dadosEndereco[2].sobrenome,
