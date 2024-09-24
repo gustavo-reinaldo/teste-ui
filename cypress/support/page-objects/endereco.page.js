@@ -14,7 +14,7 @@ class EnderecoPage {
         cy.get('#billing_postcode').clear().type(cep)
         cy.get('#billing_phone').clear().type(telefone)
         cy.get('#billing_email').clear().type(email)
-        cy.get('.button').click()
+        cy.get('button[name="save_address"]').click()
     }
 
     editarEnderecoFaturamentoCheckout(nome, sobrenome, empresa, pais, endereco, complemento, cidade, estado, cep, telefone, email){
@@ -44,7 +44,7 @@ class EnderecoPage {
         cy.get('#shipping_city').type(cidade)
         cy.get('#select2-shipping_state-container').click().type(estado +'{enter}')
         cy.get('#shipping_postcode').clear().type(cep)
-        cy.get('.button').click()
+        cy.get('button[name="save_address"]').click()
     }
 }
 export default new EnderecoPage()
